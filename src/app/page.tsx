@@ -1,9 +1,15 @@
-import { Header } from '../components/Header';
+import { PostFeatured } from '@/components/PostFeatured';
+import { PostsList } from '@/components/PostsList';
+import { SpinLoader } from '@/components/SpinLoader';
+import { Suspense } from 'react';
 
-export default function HomePage() {
+export const dynamic = 'force-static';
+
+export default async function HomePage() {
   return (
-    <div>
-      <Header />
-    </div>
+    <Suspense fallback={<SpinLoader className='min-h-20 mb-16' />}>
+      <PostFeatured />
+      <PostsList />
+    </Suspense>
   );
 }
