@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 export const dynamic = 'force-static';
 
 type PostSlugPageProps = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string } | Promise <{ slug: string }>;
 };
 
 export async function generateMetadata({
