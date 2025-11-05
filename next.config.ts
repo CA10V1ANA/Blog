@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'theblog.otaviomiranda.com.br',
+        hostname: 'theblog.caioviana.com.br',
         port: '',
         pathname: '/**',
         search: '',

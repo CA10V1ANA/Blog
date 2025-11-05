@@ -92,14 +92,14 @@ Se rodou tudo bonitinho, vamos para o Nginx
 sudo apt install nginx -y  # Só isso já deve subir algo na porta 80
 ```
 
-Configurando para por 80 - (Meu domínio: theblog.otaviomiranda.com.br)
+Configurando para por 80 - (Meu domínio: theblog.caioviana.com.br)
 
 ```sh
-sudo nano /etc/nginx/sites-available/theblog.otaviomiranda.com.br
+sudo nano /etc/nginx/sites-available/theblog.caioviana.com.br
 ```
 
 Edita os dados abaixo:\
-`theblog.otaviomiranda.com.br`\
+`theblog.caioviana.com.br`\
 Se você mudou a porta da aplicação, mude `3000` para o número que escolheu.
 Também ajuste os caminhos `/home/luizotavio/theblog/public/` e
 `/home/luizotavio/theblog/public/uploads/`
@@ -107,7 +107,7 @@ Também ajuste os caminhos `/home/luizotavio/theblog/public/` e
 ```
 server {
   listen 80;
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
 
   # Desativa buffer pra suportar Streaming e Suspense do Next.js
   proxy_buffering off;
@@ -154,7 +154,7 @@ pasta sites-enabled (é ela que ativa os sites):
 
 ```sh
 sudo rm /etc/nginx/sites-enabled/default # Apaga o site default que o nginx ativou
-sudo ln -s /etc/nginx/sites-available/theblog.otaviomiranda.com.br /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/theblog.caioviana.com.br /etc/nginx/sites-enabled/
 sudo nginx -t # confere se está tudo certo
 sudo systemctl reload nginx
 ```
@@ -164,7 +164,7 @@ tem domínio)
 
 ```sh
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d theblog.otaviomiranda.com.br
+sudo certbot --nginx -d theblog.caioviana.com.br
 sudo nginx -t # confere se tá tudo certo
 sudo systemctl reload nginx
 ```
@@ -215,7 +215,7 @@ Depoois de fazer todas as configurações, meu arquivo final do NGINX ficou assi
 #############################################
 
 server {
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
 
   # (opcional) Define o caminho raiz do projeto – Next.js não usa diretamente, mas não atrapalha
   root /home/luizotavio/theblog;
@@ -314,8 +314,8 @@ server {
 
   # --- HTTPS (SSL) ---
   listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/theblog.otaviomiranda.com.br/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/theblog.otaviomiranda.com.br/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/theblog.caioviana.com.br/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/theblog.caioviana.com.br/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
@@ -326,12 +326,12 @@ server {
 
 server {
   # Redireciona todo tráfego HTTP para HTTPS
-  if ($host = theblog.otaviomiranda.com.br) {
+  if ($host = theblog.caioviana.com.br) {
     return 301 https://$host$request_uri;
   } # managed by Certbot
 
   listen 80;
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
   return 404; # fallback se algo passar sem redirecionar
 }
 ```
@@ -382,7 +382,7 @@ Agora, do seu computador você pode executar o seguinte comando mudando os dados
 para o seu servidor (usuário, domínio ou ip, nome do arquivo):
 
 ```sh
-ssh luizotavio@theblog.otaviomiranda.com.br './refresh-theblog.sh'
+ssh luizotavio@theblog.caioviana.com.br './refresh-theblog.sh'
 ```
 
 Esse comando entra na pasta do projeto, executa "git pull" para puxar as

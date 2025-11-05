@@ -1,6 +1,6 @@
 server {
   listen 80;
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
 
   # Desativa buffer pra suportar Streaming e Suspense do Next.js
   proxy_buffering off;

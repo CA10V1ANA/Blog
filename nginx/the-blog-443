@@ -3,7 +3,7 @@
 #############################################
 
 server {
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
 
   # (opcional) Define o caminho raiz do projeto – Next.js não usa diretamente, mas não atrapalha
   root /home/luizotavio/theblog;
@@ -102,8 +102,8 @@ server {
 
   # --- HTTPS (SSL) ---
   listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/theblog.otaviomiranda.com.br/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/theblog.otaviomiranda.com.br/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/theblog.caioviana.com.br/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/theblog.caioviana.com.br/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
@@ -114,11 +114,11 @@ server {
 
 server {
   # Redireciona todo tráfego HTTP para HTTPS
-  if ($host = theblog.otaviomiranda.com.br) {
+  if ($host = theblog.caioviana.com.br) {
     return 301 https://$host$request_uri;
   } # managed by Certbot
 
   listen 80;
-  server_name theblog.otaviomiranda.com.br;
+  server_name theblog.caioviana.com.br;
   return 404; # fallback se algo passar sem redirecionar
 }
