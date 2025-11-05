@@ -8,12 +8,12 @@ server {
 
   # Servir arquivos estáticos do /public
   location /public/ {
-    alias /home/luizotavio/theblog/public/;
+    alias /home/caioviana/theblog/public/;
   }
 
   # Servir arquivos estáticos do /public/uploads
   location /uploads/ {
-    alias /home/luizotavio/theblog/public/uploads/;
+    alias /home/caioviana/theblog/public/uploads/;
   }
 
   # Resto do tráfego passa pro app Node (Next.js)
